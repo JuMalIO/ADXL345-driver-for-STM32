@@ -62,7 +62,7 @@
 #define	FULL_RES	 (1<<3)
 
 #define	INT_INVERT (1<<5)
-#define	SPI			   (1<<6)
+#define	SPI				 (1<<6)
 #define	SELF_TEST	 (1<<7)
 
 static ADXL345_Position Position;
@@ -111,7 +111,7 @@ void ADXL345_SetSleep(_Bool enabled)
 {
 	uint8_t data = enabled ? 0x00 : 0x08;
 	
-  HAL_I2C_Mem_Write(&hi2c1, ADXL345_ADDR, POWER_CTL, 1, &data, 1, 100);
+	HAL_I2C_Mem_Write(&hi2c1, ADXL345_ADDR, POWER_CTL, 1, &data, 1, 100);
 }
 
 ADXL345_Position* ADXL345_GetAccelerometerPosition(void)
@@ -161,5 +161,5 @@ void ADXL345_GetCalibratedOffsets(uint8_t* offsets)
 
 void ADXL345_SetOffsets(uint8_t* offsets)
 {
-  HAL_I2C_Mem_Write(&hi2c1, ADXL345_ADDR, OFSX, 1, offsets, 3, 100);
+	HAL_I2C_Mem_Write(&hi2c1, ADXL345_ADDR, OFSX, 1, offsets, 3, 100);
 }
