@@ -91,12 +91,7 @@ _Bool ADXL345_Init(void)
 		p--;
 	}
 	
-	if (HAL_I2C_IsDeviceReady(&hi2c1, ADXL345_ADDR, 1, 20000) != HAL_OK)
-	{
-		return 0;
-	}
-	
-	if (ADXL345_GetDeviceId() == 0xE5)
+	if (ADXL345_GetDeviceId() != 0xE5)
 	{
 		return 0;
 	}
